@@ -10,14 +10,14 @@ permissions:
   contents: read
 
 jobs:
-  draft:
+  run:
     name: "Update"
     permissions:
       contents: write
       pull-requests: read
     runs-on: ubuntu-latest
     steps:
-      - name: "Draft Release"
+      - name: "Drafter: Update Release"
         uses: release-drafter/release-drafter@v6.1.0
         with:
           config-name: release-drafter.yaml

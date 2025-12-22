@@ -1,4 +1,4 @@
-name: "Bot: Triage & Labeler"
+name: "PR Triage"
 
 on:
   pull_request_target:
@@ -9,17 +9,17 @@ permissions:
   pull-requests: write
 
 jobs:
-  triage:
+  run:
     name: "Label"
     runs-on: ubuntu-latest
     steps:
-      - name: "Checkout Code"
+      - name: "Git: Checkout"
         uses: actions/checkout@v6.0.1
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           sparse-checkout: .github/labeler.yaml
 
-      - name: "Run Labeler"
+      - name: "Labeler: Triage PR"
         uses: actions/labeler@v6.0.1
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"

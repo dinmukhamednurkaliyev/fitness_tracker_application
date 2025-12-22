@@ -25,13 +25,13 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: "Build APK"
+    - name: "Flutter: Build APK"
       shell: bash
       run: |
         melos exec -c 1 --scope="fitness_tracker_application" -- \
           "flutter build apk --${{ inputs.mode }} --flavor ${{ inputs.flavor }} --target ${{ inputs.target }}"
 
-    - name: "Rename APK"
+    - name: "File: Rename APK"
       id: rename
       shell: bash
       run: |

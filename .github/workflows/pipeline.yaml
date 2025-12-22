@@ -14,64 +14,64 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  detect-changes:
+  changes:
     name: "Changes"
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
       flutter: ${{ steps.filter.outputs.flutter }}
     steps:
-      - name: "Checkout Code"
+      - name: "Git: Checkout"
         uses: actions/checkout@v6.0.1
 
-      - name: "Detect Changes"
+      - name: "Filter: Detect Changes"
         uses: dorny/paths-filter@v3.0.2
         id: filter
         with:
           filters: |
             flutter:
               - '**/*.dart'
-              - '.github/workflows/check-*.yaml'
+              - '.github/workflows/*.yaml'
 
-  check-lint:
+  lint:
     name: "Formatting"
-    needs: detect-changes
-    if: needs.detect-changes.outputs.flutter == 'true'
-    uses: ./.github/workflows/check-lint.yaml
+    needs: changes
+    if: needs.changes.outputs.flutter == 'true'
+    uses: ./.github/workflows/lint.yaml
     secrets: inherit
 
-  check-analyze:
+  analyze:
     name: "Analysis"
-    needs: detect-changes
-    if: needs.detect-changes.outputs.flutter == 'true'
-    uses: ./.github/workflows/check-analyze.yaml
+    needs: changes
+    if: needs.changes.outputs.flutter == 'true'
+    uses: ./.github/workflows/analyze.yaml
     secrets: inherit
 
-  check-test:
+  test:
     name: "Testing"
-    needs: detect-changes
-    if: needs.detect-changes.outputs.flutter == 'true'
-    uses: ./.github/workflows/check-test.yaml
+    needs: changes
+    if: needs.changes.outputs.flutter == 'true'
+    uses: ./.github/workflows/test.yaml
     secrets: inherit
 
-  ci-pass:
+  status:
     name: "Verify"
     runs-on: ubuntu-latest
     if: always()
     timeout-minutes: 5
     needs:
-      - detect-changes
-      - check-lint
-      - check-analyze
-      - check-test
+      - changes
+      - lint
+      - analyze
+      - test
 
     steps:
-      - name: "Check: Workflow Status"
+      - name: "CI: Verify Status"
         run: |
           RESULTS='${{ toJSON(needs.*.result) }}'
           echo "Job results: $RESULTS"
 
-          if [[ "${{ needs.detect-changes.result }}" == "failure" ]]; then
+          if [[ "${{ needs.changes.result }}" == "failure" ]]; then
             echo "❌ Critical: Change detection failed."
             exit 1
           fi

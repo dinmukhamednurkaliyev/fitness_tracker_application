@@ -1,24 +1,29 @@
-name: "Check: Lint"
+name: "Testing"
 
 on:
   workflow_call:
+    secrets:
+      CODECOV_TOKEN:
+        required: false
 
 permissions:
   contents: read
 
 jobs:
-  lint:
-    name: "Check"
+  run:
+    name: "Run"
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: "Checkout Code"
+      - name: "Git: Checkout"
         uses: actions/checkout@v6.0.1
 
       - name: "Flutter: Setup"
         uses: ./.github/actions/setup-flutter/
         id: setup
 
-      - name: "Flutter: Check Formatting"
+      - name: "Flutter: Test"
         if: steps.setup.outputs.installed == 'true'
-        run: melos run format:check
+        uses: ./.github/actions/test-flutter/
+        with:
+          codecov-token: ${{ secrets.CODECOV_TOKEN }}

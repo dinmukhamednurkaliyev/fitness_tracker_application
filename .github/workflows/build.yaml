@@ -9,19 +9,19 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  run:
     name: "Build"
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - name: "Checkout Code"
+      - name: "Git: Checkout"
         uses: actions/checkout@v6.0.1
 
-      - name: "Setup Flutter"
+      - name: "Flutter: Setup"
         uses: ./.github/actions/setup-flutter/
         id: setup
 
-      - name: "Build Android APK (Debug)"
+      - name: "Flutter: Build APK"
         if: steps.setup.outputs.installed == 'true'
         id: build
         uses: ./.github/actions/build-android/
@@ -31,7 +31,7 @@ jobs:
           target: "lib/main_development.dart"
           version-tag: ${{ github.event.release.tag_name || 'manual' }}
 
-      - name: "Upload APK to Release"
+      - name: "GitHub: Upload Assets"
         if: github.event_name == 'release'
         uses: softprops/action-gh-release@v2.5.0
         with:

@@ -1,4 +1,4 @@
-name: "Check: Semantic PR"
+name: "PR Semantic"
 
 on:
   pull_request_target:
@@ -11,11 +11,12 @@ permissions:
   pull-requests: read
 
 jobs:
-  semantic-pr:
+  run:
     name: "Check"
     runs-on: ubuntu-latest
     steps:
-      - uses: amannn/action-semantic-pull-request@v6.1.1
+      - name: "Semantic: Validate PR"
+        uses: amannn/action-semantic-pull-request@v6.1.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
