@@ -1,4 +1,4 @@
-name: "Flutter: Tests"
+name: "Flutter: Test"
 description: "Runs tests, merges coverage, and uploads reports"
 inputs:
   codecov-token:

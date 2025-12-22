@@ -1,4 +1,4 @@
-name: "Build Android"
+name: "Android: Build"
 description: "Builds Android APK using Flutter with explicit flavor and mode."
 
 inputs:
