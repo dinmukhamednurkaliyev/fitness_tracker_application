@@ -10,7 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  update_draft_release:
+  draft:
+    name: "Draft Release Notes"
     permissions:
       contents: write
       pull-requests: read

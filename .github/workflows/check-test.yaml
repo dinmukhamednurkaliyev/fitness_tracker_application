@@ -10,7 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  coverage:
+  test:
+    name: "Run Tests"
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

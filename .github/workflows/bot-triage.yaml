@@ -9,15 +9,18 @@ permissions:
   pull-requests: write
 
 jobs:
-  label:
+  triage:
+    name: "Triage PR"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.1
+      - name: "Checkout Code"
+        uses: actions/checkout@v6.0.1
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           sparse-checkout: .github/labeler.yaml
 
-      - uses: actions/labeler@v6.0.1
+      - name: "Run Labeler"
+        uses: actions/labeler@v6.0.1
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           sync-labels: true
