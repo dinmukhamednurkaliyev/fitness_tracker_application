@@ -34,18 +34,21 @@ jobs:
               - '.github/workflows/check-*.yaml'
 
   check-lint:
+    name: "Formatting"
     needs: detect-changes
     if: needs.detect-changes.outputs.flutter == 'true'
     uses: ./.github/workflows/check-lint.yaml
     secrets: inherit
 
   check-analyze:
+    name: "Analysis"
     needs: detect-changes
     if: needs.detect-changes.outputs.flutter == 'true'
     uses: ./.github/workflows/check-analyze.yaml
     secrets: inherit
 
   check-test:
+    name: "Testing"
     needs: detect-changes
     if: needs.detect-changes.outputs.flutter == 'true'
     uses: ./.github/workflows/check-test.yaml
