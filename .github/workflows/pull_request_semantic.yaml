@@ -1,4 +1,4 @@
-name: "PR: Semantic"
+name: "Pull Request: Semantic"
 
 on:
   pull_request_target:
@@ -15,7 +15,7 @@ jobs:
     name: "Run"
     runs-on: ubuntu-latest
     steps:
-      - name: "Semantic: Validate PR"
+      - name: "Pull Request: Semantic"
         uses: amannn/action-semantic-pull-request@v6.1.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
