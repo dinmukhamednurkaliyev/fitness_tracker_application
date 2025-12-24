@@ -8,12 +8,13 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
-jobs:
+jobs: 
   changes:
     name: "Continuous Integration: Changes"
     runs-on: ubuntu-latest
