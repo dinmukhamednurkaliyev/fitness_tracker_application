@@ -2,7 +2,7 @@ name: "Release: Draft"
 
 on:
   push:
-    branches: [main]
+    branches: [main, tutorial, release/**]
   pull_request:
     types: [opened, synchronize, reopened]
 

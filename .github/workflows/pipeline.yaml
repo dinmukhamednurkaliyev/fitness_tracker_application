@@ -2,9 +2,9 @@ name: "CI: Pipeline"
 
 on:
   push:
-    branches: [main, release/**]
+    branches: [main, tutorial, release/**]
   pull_request:
-    branches: [main, release/**]
+    branches: [main, tutorial, release/**]
 
 permissions:
   contents: read
