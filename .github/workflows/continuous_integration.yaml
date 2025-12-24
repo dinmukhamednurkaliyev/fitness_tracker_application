@@ -1,4 +1,4 @@
-name: "CI: Pipeline"
+name: "Continuous Integration: Pipeline"
 
 on:
   push:
@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   changes:
-    name: "CI: Changes"
+    name: "Continuous Integration: Changes"
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
@@ -34,28 +34,35 @@ jobs:
               - '.github/workflows/*.yaml'
 
   lint:
-    name: "CI: Lint"
+    name: "Continuous Integration: Lint"
     needs: changes
     if: needs.changes.outputs.flutter == 'true'
-    uses: ./.github/workflows/lint.yaml
+    uses: ./.github/workflows/continuous_integration_lint.yaml
     secrets: inherit
 
   analyze:
-    name: "CI: Analyze"
+    name: "Continuous Integration: Analyze"
     needs: changes
     if: needs.changes.outputs.flutter == 'true'
-    uses: ./.github/workflows/analyze.yaml
+    uses: ./.github/workflows/continuous_integration_analyze.yaml
     secrets: inherit
 
   test:
-    name: "CI: Test"
+    name: "Continuous Integration: Test"
     needs: changes
     if: needs.changes.outputs.flutter == 'true'
-    uses: ./.github/workflows/test.yaml
+    uses: ./.github/workflows/continuous_integration_test.yaml
+    secrets: inherit
+
+  spellcheck:
+    name: "Continuous Integration: Spell Check"
+    needs: changes
+    if: needs.changes.outputs.flutter == 'true'
+    uses: ./.github/workflows/continuous_integration_spellcheck.yaml
     secrets: inherit
 
   status:
-    name: "CI: Verify"
+    name: "Continuous Integration: Verify"
     runs-on: ubuntu-latest
     if: always()
     timeout-minutes: 5
@@ -64,9 +71,10 @@ jobs:
       - lint
       - analyze
       - test
+      - spellcheck
 
     steps:
-      - name: "CI: Verify Status"
+      - name: "Continuous Integration: Verify Status"
         run: |
           RESULTS='${{ toJSON(needs.*.result) }}'
           echo "Job results: $RESULTS"

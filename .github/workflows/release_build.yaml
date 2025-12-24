@@ -18,13 +18,13 @@ jobs:
         uses: actions/checkout@v6.0.1
 
       - name: "Flutter: Setup"
-        uses: ./.github/actions/flutter-setup/
+        uses: ./.github/actions/flutter_setup/
         id: setup
 
       - name: "Flutter: Build APK"
         if: steps.setup.outputs.installed == 'true'
         id: build
-        uses: ./.github/actions/android-build/
+        uses: ./.github/actions/android_build/
         with:
           flavor: "development"
           mode: "debug"
