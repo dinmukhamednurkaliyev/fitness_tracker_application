@@ -2,9 +2,9 @@ name: "Continuous Integration: Pipeline"
 
 on:
   push:
-    branches: [main, tutorial, release/**]
+    branches: [main, release/**]
   pull_request:
-    branches: [main, tutorial, release/**]
+    branches: [main, release/**]
 
 permissions:
   contents: read
@@ -14,7 +14,7 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
-jobs: 
+jobs:
   changes:
     name: "Continuous Integration: Changes"
     runs-on: ubuntu-latest
