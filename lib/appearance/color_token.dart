@@ -9,12 +9,15 @@ class _PrimitiveColor {
   static const Color grey300 = Color(0xFFE0E0E0);
   static const Color grey400 = Color(0xFFE8E2F3);
   static const Color grey500 = Color(0xFFCCCCCC);
-  static const Color grey600 = Color(0xFF666666);
+  static const Color grey600 = Color(0xFF999999);
+  static const Color grey700 = Color(0xFF666666);
   static const Color grey800 = Color(0xFF1A1A1A);
   static const Color grey900 = Color(0xFF0F1115);
+
   static const Color opacity04 = Color(0x0A000000);
   static const Color opacity10 = Color(0x1A000000);
   static const Color opacity20 = Color(0x33000000);
+
   static const Color blue100 = Color(0xFFBBD2FF);
   static const Color yellow400 = Color(0xFFFFC85D);
   static const Color green50 = Color(0xFFE7F8ED);
@@ -27,6 +30,8 @@ class _PrimitiveColor {
 @immutable
 class SemanticColor extends ThemeExtension<SemanticColor> {
   const SemanticColor({
+    required this.iconGrey,
+    required this.iconLightGrey,
     required this.borderGrey,
     required this.borderLight,
     required this.shadowDark,
@@ -83,6 +88,8 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
       shadowMedium: _PrimitiveColor.opacity20,
       borderGrey: _PrimitiveColor.grey400,
       borderLight: _PrimitiveColor.grey50,
+      iconGrey: _PrimitiveColor.grey700,
+      iconLightGrey: _PrimitiveColor.grey600,
     );
   }
 
@@ -112,6 +119,8 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
   final Color shadowDark;
   final Color borderLight;
   final Color borderGrey;
+  final Color iconGrey;
+  final Color iconLightGrey;
 
   @override
   ThemeExtension<SemanticColor> copyWith({
@@ -143,6 +152,8 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
     Color? shadowDark,
     Color? borderLight,
     Color? borderGrey,
+    Color? iconGrey,
+    Color? iconLightGrey,
   }) {
     return SemanticColor(
       backgroundPrimary: backgroundPrimary ?? this.backgroundPrimary,
@@ -171,6 +182,8 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
       shadowDark: shadowDark ?? this.shadowDark,
       borderLight: borderLight ?? this.borderLight,
       borderGrey: borderGrey ?? this.borderGrey,
+      iconGrey: iconGrey ?? this.iconGrey,
+      iconLightGrey: iconLightGrey ?? this.iconLightGrey,
     );
   }
 
@@ -213,6 +226,8 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
       shadowDark: Color.lerp(shadowDark, other.shadowDark, t) ?? shadowDark,
       borderLight: Color.lerp(borderLight, other.borderLight, t) ?? borderLight,
       borderGrey: Color.lerp(borderGrey, other.borderGrey, t) ?? borderGrey,
+      iconGrey: Color.lerp(iconGrey, other.iconGrey, t) ?? iconGrey,
+      iconLightGrey: Color.lerp(iconLightGrey, other.iconLightGrey, t) ?? iconLightGrey,
     );
   }
 }
