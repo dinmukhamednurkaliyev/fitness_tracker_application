@@ -31,30 +31,38 @@ class SemanticPadding extends ThemeExtension<SemanticPadding> {
     required this.xxl,
     required this.xxxl,
   });
-  factory SemanticPadding.regular() {
-    return const SemanticPadding(
-      none: _PrimitivePadding.s0,
-      xxxs: _PrimitivePadding.s4,
-      xxs: _PrimitivePadding.s8,
-      xs: _PrimitivePadding.s12,
-      sm: _PrimitivePadding.s16,
-      md: _PrimitivePadding.s20,
-      lg: _PrimitivePadding.s24,
-      xl: _PrimitivePadding.s28,
-      xxl: _PrimitivePadding.s32,
-      xxxl: _PrimitivePadding.s36,
-    );
-  }
+
+  static const regular = SemanticPadding(
+    none: _PrimitivePadding.s0,
+    xxxs: _PrimitivePadding.s4,
+    xxs: _PrimitivePadding.s8,
+    xs: _PrimitivePadding.s12,
+    sm: _PrimitivePadding.s16,
+    md: _PrimitivePadding.s20,
+    lg: _PrimitivePadding.s24,
+    xl: _PrimitivePadding.s28,
+    xxl: _PrimitivePadding.s32,
+    xxxl: _PrimitivePadding.s36,
+  );
 
   final double none;
+
   final double xxxs;
+
   final double xxs;
+
   final double xs;
+
   final double sm;
+
   final double md;
+
   final double lg;
+
   final double xl;
+
   final double xxl;
+
   final double xxxl;
 
   @override

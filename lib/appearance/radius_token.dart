@@ -32,29 +32,37 @@ class SemanticRadius extends ThemeExtension<SemanticRadius> {
     required this.xxxl,
   });
 
-  factory SemanticRadius.regular() {
-    return const SemanticRadius(
-      none: _PrimitiveRadius.s0,
-      xxxs: _PrimitiveRadius.s4,
-      xxs: _PrimitiveRadius.s8,
-      xs: _PrimitiveRadius.s12,
-      sm: _PrimitiveRadius.s16,
-      md: _PrimitiveRadius.s20,
-      lg: _PrimitiveRadius.s24,
-      xl: _PrimitiveRadius.s28,
-      xxl: _PrimitiveRadius.s32,
-      xxxl: _PrimitiveRadius.s36,
-    );
-  }
+  static const regular = SemanticRadius(
+    none: _PrimitiveRadius.s0,
+    xxxs: _PrimitiveRadius.s4,
+    xxs: _PrimitiveRadius.s8,
+    xs: _PrimitiveRadius.s12,
+    sm: _PrimitiveRadius.s16,
+    md: _PrimitiveRadius.s20,
+    lg: _PrimitiveRadius.s24,
+    xl: _PrimitiveRadius.s28,
+    xxl: _PrimitiveRadius.s32,
+    xxxl: _PrimitiveRadius.s36,
+  );
+
   final double none;
+
   final double xxxs;
+
   final double xxs;
+
   final double xs;
+
   final double sm;
+
   final double md;
+
   final double lg;
+
   final double xl;
+
   final double xxl;
+
   final double xxxl;
 
   @override

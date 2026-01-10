@@ -4,12 +4,12 @@ class _PrimitiveColor {
   const _PrimitiveColor();
 
   static const Color grey50 = Color(0xFFF2EEF9);
-  static const Color grey100 = Color(0xFFF0F0F0);
+  //static const Color grey100 = Color(0xFFF0F0F0);
   static const Color grey200 = Color(0xFFF0EBF7);
-  static const Color grey300 = Color(0xFFE0E0E0);
+  //static const Color grey300 = Color(0xFFE0E0E0);
   static const Color grey400 = Color(0xFFE8E2F3);
-  static const Color grey500 = Color(0xFFCCCCCC);
-  static const Color grey600 = Color(0xFF999999);
+  //static const Color grey500 = Color(0xFFCCCCCC);
+  static const Color grey600 = Color(0x4D999999);
   static const Color grey700 = Color(0xFF666666);
   static const Color grey800 = Color(0xFF1A1A1A);
   static const Color grey900 = Color(0xFF0F1115);
@@ -30,6 +30,7 @@ class _PrimitiveColor {
 @immutable
 class SemanticColor extends ThemeExtension<SemanticColor> {
   const SemanticColor({
+    required this.text,
     required this.iconGrey,
     required this.iconLightGrey,
     required this.borderGrey,
@@ -57,44 +58,47 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
     required this.textPrimary,
     required this.textSecondary,
     required this.backgroundPrimary,
-    required this.backgroundSecondary,
+    required this.backgroundBlack,
+    required this.backgroundWhite,
   });
 
-  factory SemanticColor.regular() {
-    return const SemanticColor(
-      textPrimary: _PrimitiveColor.grey900,
-      textSecondary: _PrimitiveColor.grey900,
-      backgroundPrimary: _PrimitiveColor.grey50,
-      backgroundSecondary: _PrimitiveColor.grey900,
-      cardBlue: _PrimitiveColor.blue100,
-      cardOrange: _PrimitiveColor.orange700,
-      cardRed: _PrimitiveColor.red400,
-      cardTeal: _PrimitiveColor.teal400,
-      cardYellow: _PrimitiveColor.yellow400,
-      pillGreen: _PrimitiveColor.green50,
-      pillOrange: _PrimitiveColor.orange100,
-      metricBackgroundGreen: _PrimitiveColor.green50,
-      metricBackgroundBlue: _PrimitiveColor.blue100,
-      metricBackgroundOrange: _PrimitiveColor.orange100,
-      bottomNavigationBackground: _PrimitiveColor.grey900,
-      difficultyEasy: Colors.green,
-      difficultyMedium: Colors.orange,
-      difficultyHard: Colors.red,
-      socialBlue: Colors.blue,
-      socialPink: Colors.pink,
-      socialRed: Colors.red,
-      shadowDark: _PrimitiveColor.opacity04,
-      shadowLight: _PrimitiveColor.opacity10,
-      shadowMedium: _PrimitiveColor.opacity20,
-      borderGrey: _PrimitiveColor.grey400,
-      borderLight: _PrimitiveColor.grey50,
-      iconGrey: _PrimitiveColor.grey700,
-      iconLightGrey: _PrimitiveColor.grey600,
-    );
-  }
+  static const regular = SemanticColor(
+    text: _PrimitiveColor.grey900,
+    textPrimary: _PrimitiveColor.grey800,
+    textSecondary: _PrimitiveColor.grey700,
+    backgroundPrimary: _PrimitiveColor.grey50,
+    backgroundBlack: Colors.black,
+    backgroundWhite: Colors.white,
+    cardBlue: _PrimitiveColor.blue100,
+    cardOrange: _PrimitiveColor.orange700,
+    cardRed: _PrimitiveColor.red400,
+    cardTeal: _PrimitiveColor.teal400,
+    cardYellow: _PrimitiveColor.yellow400,
+    pillGreen: _PrimitiveColor.green50,
+    pillOrange: _PrimitiveColor.orange100,
+    metricBackgroundGreen: _PrimitiveColor.green50,
+    metricBackgroundBlue: _PrimitiveColor.blue100,
+    metricBackgroundOrange: _PrimitiveColor.orange100,
+    bottomNavigationBackground: Colors.black,
+    difficultyEasy: Colors.green,
+    difficultyMedium: Colors.orange,
+    difficultyHard: Colors.red,
+    socialBlue: Colors.blue,
+    socialPink: Colors.pink,
+    socialRed: Colors.red,
+    shadowDark: _PrimitiveColor.opacity04,
+    shadowLight: _PrimitiveColor.opacity10,
+    shadowMedium: _PrimitiveColor.opacity20,
+    borderGrey: _PrimitiveColor.grey400,
+    borderLight: _PrimitiveColor.grey50,
+    iconGrey: _PrimitiveColor.grey700,
+    iconLightGrey: _PrimitiveColor.grey600,
+  );
 
   final Color backgroundPrimary;
-  final Color backgroundSecondary;
+  final Color backgroundBlack;
+  final Color backgroundWhite;
+  final Color text;
   final Color textPrimary;
   final Color textSecondary;
   final Color cardYellow;
@@ -125,7 +129,9 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
   @override
   ThemeExtension<SemanticColor> copyWith({
     Color? backgroundPrimary,
-    Color? backgroundSecondary,
+    Color? backgroundBlack,
+    Color? backgroundWhite,
+    Color? text,
     Color? textPrimary,
     Color? textSecondary,
     Color? cardPrimary,
@@ -157,7 +163,9 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
   }) {
     return SemanticColor(
       backgroundPrimary: backgroundPrimary ?? this.backgroundPrimary,
-      backgroundSecondary: backgroundSecondary ?? this.backgroundSecondary,
+      backgroundBlack: backgroundBlack ?? this.backgroundBlack,
+      backgroundWhite: backgroundWhite ?? this.backgroundWhite,
+      text: text ?? this.text,
       textPrimary: textPrimary ?? this.textPrimary,
       textSecondary: textSecondary ?? this.textSecondary,
       cardYellow: cardYellow ?? this.cardYellow,
@@ -193,8 +201,9 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
     return SemanticColor(
       backgroundPrimary:
           Color.lerp(backgroundPrimary, other.backgroundPrimary, t) ?? backgroundPrimary,
-      backgroundSecondary:
-          Color.lerp(backgroundSecondary, other.backgroundSecondary, t) ?? backgroundSecondary,
+      backgroundBlack: Color.lerp(backgroundBlack, other.backgroundBlack, t) ?? backgroundBlack,
+      backgroundWhite: Color.lerp(backgroundWhite, other.backgroundWhite, t) ?? backgroundWhite,
+      text: Color.lerp(text, other.text, t) ?? text,
       textPrimary: Color.lerp(textPrimary, other.textPrimary, t) ?? textPrimary,
       textSecondary: Color.lerp(textSecondary, other.textSecondary, t) ?? textSecondary,
       cardYellow: Color.lerp(cardYellow, other.cardYellow, t) ?? cardYellow,
@@ -233,14 +242,29 @@ class SemanticColor extends ThemeExtension<SemanticColor> {
 }
 
 class SemanticGradient extends ThemeExtension<SemanticGradient> {
-  const SemanticGradient();
-  factory SemanticGradient.regular() {
-    return const SemanticGradient();
-  }
+  const SemanticGradient({
+    required this.challengeCard,
+  });
+  static const regular = SemanticGradient(
+    challengeCard: LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [
+        _PrimitiveColor.grey400,
+        _PrimitiveColor.grey200,
+      ],
+    ),
+  );
+
+  final Gradient challengeCard;
 
   @override
-  ThemeExtension<SemanticGradient> copyWith() {
-    throw UnimplementedError();
+  ThemeExtension<SemanticGradient> copyWith({
+    Gradient? challengeCard,
+  }) {
+    return SemanticGradient(
+      challengeCard: challengeCard ?? this.challengeCard,
+    );
   }
 
   @override
@@ -248,6 +272,9 @@ class SemanticGradient extends ThemeExtension<SemanticGradient> {
     covariant ThemeExtension<SemanticGradient>? other,
     double t,
   ) {
-    throw UnimplementedError();
+    if (other is! SemanticGradient) return this;
+    return SemanticGradient(
+      challengeCard: Gradient.lerp(challengeCard, other.challengeCard, t) ?? challengeCard,
+    );
   }
 }

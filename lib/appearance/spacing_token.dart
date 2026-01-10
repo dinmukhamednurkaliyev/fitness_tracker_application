@@ -30,30 +30,37 @@ class SemanticSpacing extends ThemeExtension<SemanticSpacing> {
     required this.xxxl,
   });
 
-  factory SemanticSpacing.regular() {
-    return const SemanticSpacing(
-      none: _PrimitiveSpacing.s0,
-      xxxs: _PrimitiveSpacing.s4,
-      xxs: _PrimitiveSpacing.s8,
-      xs: _PrimitiveSpacing.s12,
-      sm: _PrimitiveSpacing.s16,
-      md: _PrimitiveSpacing.s20,
-      lg: _PrimitiveSpacing.s24,
-      xl: _PrimitiveSpacing.s28,
-      xxl: _PrimitiveSpacing.s32,
-      xxxl: _PrimitiveSpacing.s36,
-    );
-  }
+  static const regular = SemanticSpacing(
+    none: _PrimitiveSpacing.s0,
+    xxxs: _PrimitiveSpacing.s4,
+    xxs: _PrimitiveSpacing.s8,
+    xs: _PrimitiveSpacing.s12,
+    sm: _PrimitiveSpacing.s16,
+    md: _PrimitiveSpacing.s20,
+    lg: _PrimitiveSpacing.s24,
+    xl: _PrimitiveSpacing.s28,
+    xxl: _PrimitiveSpacing.s32,
+    xxxl: _PrimitiveSpacing.s36,
+  );
 
   final double none;
+
   final double xxxs;
+
   final double xxs;
+
   final double xs;
+
   final double sm;
+
   final double md;
+
   final double lg;
+
   final double xl;
+
   final double xxl;
+
   final double xxxl;
 
   @override
