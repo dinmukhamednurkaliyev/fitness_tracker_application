@@ -8,13 +8,12 @@ class DailyChallengeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gradient = context.gradient;
-    final padding = context.padding;
     final spacing = context.spacing;
     final radius = context.radius;
     final color = context.color;
     final text = context.text;
     return Container(
-      padding: EdgeInsets.all(padding.md),
+      padding: EdgeInsets.all(spacing.md),
       decoration: BoxDecoration(
         gradient: gradient.challengeCard,
         borderRadius: BorderRadius.circular(radius.md),

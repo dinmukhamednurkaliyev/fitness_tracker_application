@@ -62,9 +62,15 @@ class _HomeHeader extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(_headerHeight);
 }
 
-class _HomeBody extends StatelessWidget {
+class _HomeBody extends StatefulWidget {
   const _HomeBody();
 
+  @override
+  State<_HomeBody> createState() => _HomeBodyState();
+}
+
+class _HomeBodyState extends State<_HomeBody> {
+  DateTime selectedDate = DateTime.now();
   @override
   Widget build(BuildContext context) {
     final spacing = context.spacing;
@@ -73,9 +79,14 @@ class _HomeBody extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           spacing: spacing.sm,
-          children: const [
-            DailyChallengeCard(),
-            WeeklyListComponent(),
+          children: [
+            const DailyChallengeCard(),
+            WeeklyListComponent(
+              selectedDate: selectedDate,
+              onDateSelected: (date) => setState(() {
+                selectedDate = date;
+              }),
+            ),
           ],
         ),
       ),
