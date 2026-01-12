@@ -1,6 +1,8 @@
-export 'daily_challenge_card.dart';
-export 'home_page.dart';
-export 'search_button.dart';
-export 'user_avatar.dart';
-export 'user_greeting.dart';
-export 'weekly_list_component.dart';
+export 'entities/workout_plan_entity.dart';
+export 'pages/home_page.dart';
+export 'sections/home_daily_challenge_section.dart';
+export 'sections/home_schedule_section.dart';
+export 'sections/home_workout_section.dart';
+export 'widgets/search_button.dart';
+export 'widgets/user_avatar.dart';
+export 'widgets/user_greeting.dart';

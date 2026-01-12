@@ -2,8 +2,8 @@ import 'package:fitness_tracker_application/appearance/appearance.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class WeeklyListComponent extends StatelessWidget {
-  const WeeklyListComponent({
+class HomeScheduleSection extends StatelessWidget {
+  const HomeScheduleSection({
     required this.selectedDate,
     required this.onDateSelected,
     super.key,
@@ -55,7 +55,13 @@ class WeeklyListComponent extends StatelessWidget {
                 children: [
                   Text(
                     DateFormat('E').format(date),
-                    style: context.text.bodyLarge.withColor(
+                    style: context.text.labelMedium.withColor(
+                      isSelected ? color.textWhite : color.textSecondary,
+                    ),
+                  ),
+                  Text(
+                    DateFormat('d').format(date),
+                    style: context.text.labelLarge.withColor(
                       isSelected ? color.textWhite : color.textSecondary,
                     ),
                   ),

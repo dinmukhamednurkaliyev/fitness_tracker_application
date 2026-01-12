@@ -2,8 +2,8 @@ import 'package:fitness_tracker_application/appearance/appearance.dart';
 import 'package:fitness_tracker_application/home/home.dart';
 import 'package:flutter/material.dart';
 
-class DailyChallengeCard extends StatelessWidget {
-  const DailyChallengeCard({super.key});
+class HomeDailyChallengeSection extends StatelessWidget {
+  const HomeDailyChallengeSection({super.key});
 
   @override
   Widget build(BuildContext context) {
