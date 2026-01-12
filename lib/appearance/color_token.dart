@@ -308,3 +308,5 @@ class SemanticGradient extends ThemeExtension<SemanticGradient> {
     );
   }
 }
+
+extension ColorExtension on Color {}
