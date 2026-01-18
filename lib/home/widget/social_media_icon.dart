@@ -5,17 +5,22 @@ class SocialMediaIcon extends StatelessWidget {
   const SocialMediaIcon({
     required this.icon,
     required this.iconColor,
+    this.size = 40,
+    this.iconSize = 20,
     super.key,
   });
+
   final IconData icon;
   final Color iconColor;
+  final double size;
+  final double iconSize;
 
   @override
   Widget build(BuildContext context) {
     final color = context.color;
     return Container(
-      width: 40,
-      height: 40,
+      width: size,
+      height: size,
       decoration: BoxDecoration(
         color: color.backgroundWhite,
         shape: BoxShape.circle,
@@ -30,7 +35,7 @@ class SocialMediaIcon extends StatelessWidget {
       child: Icon(
         icon,
         color: iconColor,
-        size: 20,
+        size: iconSize,
       ),
     );
   }

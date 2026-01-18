@@ -113,14 +113,14 @@ class WorkoutCard extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: Container(
-                    width: 40,
-                    height: 40,
+                    width: spacing.xl,
+                    height: spacing.xl,
                     decoration: BoxDecoration(
                       color: color.iconLightGrey,
                       borderRadius: BorderRadius.circular(spacing.xxs),
                     ),
                     child: Icon(
-                      size: 20,
+                      size: spacing.md,
                       Icons.extension,
                       color: color.iconGrey,
                     ),
