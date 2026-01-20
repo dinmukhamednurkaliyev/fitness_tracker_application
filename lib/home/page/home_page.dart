@@ -86,7 +86,7 @@ class _HomeBodyState extends State<HomeBody> {
     ];
 
     final workoutPlans = [
-      WorkoutPlan(
+      WorkoutPlanItem(
         title: 'Yoga Group',
         difficulty: 'Medium',
         date: '25 Nov.',
@@ -97,7 +97,7 @@ class _HomeBodyState extends State<HomeBody> {
             'https://images.unsplash.com/photo-1549351236-caca0f174515?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3DYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         backgroundColor: color.cardYellow,
       ),
-      WorkoutPlan(
+      WorkoutPlanItem(
         title: 'Cardio Group',
         difficulty: 'Hard',
         date: '28 Nov.',

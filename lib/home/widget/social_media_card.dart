@@ -2,16 +2,6 @@ import 'package:fitness_tracker_application/appearance/appearance.dart';
 import 'package:fitness_tracker_application/home/home.dart';
 import 'package:flutter/material.dart';
 
-class SocialMediaItem {
-  const SocialMediaItem({
-    required this.icon,
-    required this.color,
-  });
-
-  final IconData icon;
-  final Color color;
-}
-
 class SocialMediaCard extends StatelessWidget {
   const SocialMediaCard({
     required this.items,

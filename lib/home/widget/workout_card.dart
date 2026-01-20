@@ -10,7 +10,7 @@ class WorkoutCard extends StatelessWidget {
     super.key,
   });
 
-  final WorkoutPlan plan;
+  final WorkoutPlanItem plan;
   final bool isLeft;
   final VoidCallback onTap;
 

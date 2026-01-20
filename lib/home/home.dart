@@ -1,4 +1,3 @@
-export 'entity/workout_plan_entity.dart';
 export 'page/home_page.dart';
 export 'section/home_daily_challenge_section.dart';
 export 'section/home_schedule_section.dart';
