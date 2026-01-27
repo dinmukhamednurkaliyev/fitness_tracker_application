@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 
 class SessionAvailableSection extends StatelessWidget {
   const SessionAvailableSection({
-    required this.item,
+    required this.sessions,
     super.key,
   });
 
-  final List<SessionCardItem> item;
+  final List<SessionCardData> sessions;
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +29,10 @@ class SessionAvailableSection extends StatelessWidget {
         ),
         Column(
           spacing: padding.sm,
-          children: item
+          children: sessions
               .map(
                 (item) => SessionCard(
-                  item: item,
+                  session: item,
                   onTap: () {},
                 ),
               )
