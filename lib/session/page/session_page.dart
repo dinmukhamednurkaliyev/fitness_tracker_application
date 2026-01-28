@@ -7,9 +7,11 @@ class SessionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: SessionHeader(),
-      body: SessionBody(),
+    final color = context.color;
+    return Scaffold(
+      backgroundColor: color.backgroundPrimary,
+      appBar: const SessionHeader(),
+      body: const SessionBody(),
     );
   }
 }

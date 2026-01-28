@@ -9,7 +9,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final color = context.color;
     return Scaffold(
-      backgroundColor: color.backgroundWhite,
+      backgroundColor: color.backgroundPrimary,
       appBar: const ProfileHeader(),
       body: const ProfileBody(),
     );

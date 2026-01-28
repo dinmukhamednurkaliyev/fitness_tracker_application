@@ -12,12 +12,12 @@ class SessionAvailableSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final padding = context.spacing;
+    final spacing = context.spacing;
     final text = context.text;
     final color = context.color;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: padding.sm,
+      spacing: spacing.sm,
       children: [
         Text(
           'Available Sessions',
@@ -28,7 +28,7 @@ class SessionAvailableSection extends StatelessWidget {
           style: text.bodyLarge.withColor(color.textPrimary),
         ),
         Column(
-          spacing: padding.sm,
+          spacing: spacing.sm,
           children: sessions
               .map(
                 (item) => SessionCard(
